@@ -1,3 +1,3 @@
-FROM ubuntu:14.04
+FROM ansible/ubuntu14.04-ansible
 
-RUN apt-get update && apt-get install -y openssh-client && apt-get install net-tools
+RUN sudo apt-get update && sudo apt-get install -y openssh-client && sudo apt-get install net-tools
