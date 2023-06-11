@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  container_20_04:
+    build:
+      context: .
+      dockerfile: 20/Dockerfile
+    container_name: C4
+    privileged: true
+
+  container_14_04:
+    build:
+      context: .
+      dockerfile: 14/Dockerfile
+    depends_on:
+      - container_20_04
+    container_name: C1
+    tty: true
+
+  container_16_04:
+    build:
+      context: .
+      dockerfile: 16/Dockerfile
+    depends_on:
+      - container_14_04
+    container_name: C2
+    tty: true
+
+  container_18_04:
+    build:
+      context: .
+      dockerfile: 18/Dockerfile
+    depends_on:
+      - container_16_04
+    container_name: C3
+    tty: true
